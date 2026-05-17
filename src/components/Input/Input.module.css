@@ -1,0 +1,107 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.fullWidth {
+  width: 100%;
+}
+
+.label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  line-height: var(--line-height-tight);
+}
+
+/* Input container holds the input + icon slots */
+.inputContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input {
+  width: 100%;
+  height: 40px;
+  padding: 0 var(--space-3);
+  background-color: var(--color-white);
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-primary);
+  transition:
+    border-color var(--transition-normal),
+    box-shadow var(--transition-normal);
+  outline: none;
+}
+
+.input::placeholder {
+  color: var(--color-text-tertiary);
+}
+
+.input:hover:not(:disabled):not(.inputError) {
+  border-color: var(--color-border-strong);
+}
+
+.input:focus:not(.inputError) {
+  border-color: var(--color-border-focus);
+  box-shadow: var(--shadow-focus);
+}
+
+.input:disabled {
+  background-color: var(--color-neutral-50);
+  color: var(--color-text-disabled);
+  cursor: not-allowed;
+}
+
+/* Error state */
+.inputError {
+  border-color: var(--color-danger) !important;
+}
+.inputError:focus {
+  box-shadow: var(--shadow-focus-danger) !important;
+}
+
+/* Icon padding adjustments */
+.hasLeftIcon {
+  padding-left: var(--space-10);
+}
+
+.hasRightIcon {
+  padding-right: var(--space-10);
+}
+
+/* Icon slots */
+.iconLeft,
+.iconRight {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--space-10);
+  color: var(--color-text-secondary);
+  pointer-events: none;
+}
+
+.iconLeft {
+  left: 0;
+}
+
+.iconRight {
+  right: 0;
+}
+
+/* Helper & error text */
+.helperText {
+  font-size: var(--font-size-xs);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+}
+
+.errorText {
+  font-size: var(--font-size-xs);
+  color: var(--color-danger);
+  line-height: var(--line-height-normal);
+}

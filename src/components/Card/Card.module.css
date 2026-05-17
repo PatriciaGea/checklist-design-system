@@ -1,0 +1,71 @@
+.card {
+  background-color: var(--color-bg-surface);
+  border-radius: var(--radius-xl);
+  border: 1px solid transparent;
+  transition:
+    box-shadow var(--transition-normal),
+    transform var(--transition-normal),
+    border-color var(--transition-normal);
+}
+
+/* ── Variants ──────────────────────────────────────────────── */
+
+.default {
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-xs);
+}
+
+.elevated {
+  border-color: transparent;
+  box-shadow: var(--shadow-md);
+}
+
+.outlined {
+  border-color: var(--color-border);
+  box-shadow: var(--shadow-none);
+}
+
+.ghost {
+  background-color: transparent;
+  border-color: transparent;
+  box-shadow: var(--shadow-none);
+}
+
+/* ── Padding ───────────────────────────────────────────────── */
+
+.paddingNone {
+  padding: 0;
+}
+
+.paddingSm {
+  padding: var(--space-4);
+}
+
+.paddingMd {
+  padding: var(--space-6);
+}
+
+.paddingLg {
+  padding: var(--space-8);
+}
+
+/* ── Interactive ───────────────────────────────────────────── */
+
+.interactive {
+  cursor: pointer;
+}
+
+.interactive:hover {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-1px);
+}
+
+.interactive:active {
+  box-shadow: var(--shadow-sm);
+  transform: translateY(0);
+}
+
+.interactive:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}

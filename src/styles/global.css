@@ -1,0 +1,87 @@
+/* ============================================================
+   Global Styles — Tailwind CSS entry point
+   @tailwind directives must appear before @import in PostCSS pipeline.
+   CSS custom properties (design tokens) are defined in @layer base.
+   ============================================================ */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Design Tokens — CSS Custom Properties ──────────────────── */
+/* Defined here so both Tailwind utilities and raw CSS can reference them. */
+
+@layer base {
+  :root {
+    /* Colors */
+    --color-primary: #6366f1;
+    --color-primary-hover: #4f46e5;
+    --color-primary-active: #4338ca;
+    --color-primary-light: #e0e7ff;
+    --color-success: #10b981;
+    --color-success-light: #d1fae5;
+    --color-danger: #ef4444;
+    --color-danger-hover: #dc2626;
+    --color-danger-light: #fee2e2;
+    --color-warning: #f59e0b;
+    --color-warning-light: #fef3c7;
+    --color-border: #e5e7eb;
+    --color-border-strong: #d1d5db;
+    --color-bg-page: #f0f2f5;
+    --color-bg-surface: #ffffff;
+    --color-text-primary: #111827;
+    --color-text-secondary: #6b7280;
+    --color-text-disabled: #9ca3af;
+
+    /* Spacing (4px base unit) */
+    --space-1: 4px;  --space-2: 8px;   --space-3: 12px;
+    --space-4: 16px; --space-5: 20px;  --space-6: 24px;
+    --space-8: 32px; --space-10: 40px; --space-12: 48px;
+
+    /* Transitions */
+    --duration-normal: 150ms;
+    --easing-default: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    color: #111827;
+    background-color: #f0f2f5;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  #root {
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Global keyboard focus ring — design-system consistent */
+  *:focus {
+    outline: none;
+  }
+
+  *:focus-visible {
+    outline: 2px solid #6366f1;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+/* ── Custom Component Utilities ─────────────────────────────── */
+
+@layer components {
+  /* Checkbox checkmark stroke-dashoffset animation.
+     Cannot be expressed with Tailwind utility classes alone. */
+  .checkbox-mark {
+    stroke-dasharray: 18;
+    stroke-dashoffset: 18;
+    transition: stroke-dashoffset 150ms ease-out;
+  }
+
+  .checkbox-mark-active {
+    stroke-dashoffset: 0;
+  }
+}
